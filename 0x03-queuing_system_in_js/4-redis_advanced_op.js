@@ -8,17 +8,27 @@ client.on("error", (error) => {
   });
 
 const name = 'HolbertonSchools';
-const values = {'Portland': 50,
+const mydata = {'Portland': 50,
                'Seattle': 80,
                'New York': 20,
                'Bogota': 20,
                'Cali': 40,
                'Paris': 2}
 
-for (const [key, val] of Object.entries(values)) {
-  client.hset(name, key, val, (error, reply) =>
-    redis.print((`Reply: ${reply}`))
-  );
+for (const [key, val] of Object.entries(mydata)) {
+  client.hset(name, key, val, (error, reply) => {
+    if (error) {
+      console.log(error);
+    } else {
+      redis.print((`Reply: ${reply}`));
+    }
+  });
 }
 
-client.hgetall(name, (error, object) => console.log(object));
+client.hgetall(name, (error, object) => {
+  if (error) {
+    console.log(error);
+  } else {
+    console.log(object);
+  }
+});

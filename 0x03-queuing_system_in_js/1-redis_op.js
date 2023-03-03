@@ -10,13 +10,21 @@ client.on("error", (error) => {
 
 function setNewSchool(schoolName, value) {
     client.set(schoolName, value, (error, reply) => {
-        redis.print(`Reply: ${reply}`);
+        if (error) {
+            console.log(error);
+        } else {
+            redis.print(`Reply: ${reply}`);
+        }
     });
 }
 
 function displaySchoolValue(schoolName) {
     client.get(schoolName, (error, reply) => {
-        console.log(reply);
+        if (error) {
+            console.log(error);
+        } else {
+            console.log(reply);
+        }
     });
 }
 
