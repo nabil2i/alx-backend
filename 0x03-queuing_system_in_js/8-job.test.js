@@ -6,6 +6,14 @@ const list = [
     {
       phoneNumber: '4153518780',
       message: 'This is the code 1234 to verify your account'
+    },
+    {
+      phoneNumber: '4153518782',
+      message: 'This is the code 1234 to verify your account'
+    },
+    {
+      phoneNumber: '4153518784',
+      message: 'This is the code 1234 to verify your account'
     }
 ];
 
